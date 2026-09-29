@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="MoTech mark">
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="#0C2B2E"/>
+  <path d="M11 35V13h5l8 10 8-10h5v22h-5V21l-8 9-8-9v14z" fill="#2FD0C8"/>
+  <circle cx="39" cy="36" r="3" fill="#FFB020"/>
+</svg>
