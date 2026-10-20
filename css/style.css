@@ -540,6 +540,29 @@ h1 span { color: var(--accent); }
   .contact-layout h2 { font-size: 24px; }
 }
 
+/* PS2-boot style floating orbs */
+.circuit-nodes circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 5px var(--orange)) drop-shadow(0 0 12px var(--orange));
+  animation: ps2-drift var(--dur, 8s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+@keyframes ps2-drift {
+  0%   { transform: translate(0, 0) scale(.8);  opacity: .3; }
+  50%  { transform: translate(var(--x), var(--y)) scale(1.5); opacity: 1; }
+  100% { transform: translate(calc(var(--x) * -.7), calc(var(--y) * -.9)) scale(1); opacity: .5; }
+}
+
+.circuit-nodes circle:nth-child(1) { --x: 14px;  --y: -22px; --dur: 7s;   --delay: 0s; }
+.circuit-nodes circle:nth-child(2) { --x: -18px; --y: 16px;  --dur: 9s;   --delay: -2s; }
+.circuit-nodes circle:nth-child(3) { --x: 22px;  --y: 12px;  --dur: 6.5s; --delay: -4s; }
+.circuit-nodes circle:nth-child(4) { --x: -12px; --y: -26px; --dur: 10s;  --delay: -1s; }
+.circuit-nodes circle:nth-child(5) { --x: 20px;  --y: 18px;  --dur: 8s;   --delay: -5s; }
+.circuit-nodes circle:nth-child(6) { --x: -24px; --y: -14px; --dur: 7.5s; --delay: -3s; }
+.circuit-nodes circle:nth-child(7) { --x: 16px;  --y: -20px; --dur: 9.5s; --delay: -6s; }
+.circuit-nodes circle:nth-child(8) { --x: -20px; --y: 22px;  --dur: 6s;   --delay: -2.5s; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; }
