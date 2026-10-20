@@ -563,6 +563,34 @@ h1 span { color: var(--accent); }
 .circuit-nodes circle:nth-child(7) { --x: 16px;  --y: -20px; --dur: 9.5s; --delay: -6s; }
 .circuit-nodes circle:nth-child(8) { --x: -20px; --y: 22px;  --dur: 6s;   --delay: -2.5s; }
 
+/* Data flowing along circuit traces */
+.circuit-lines path {
+  stroke-dasharray: 6 18;
+  animation: trace-flow 3s linear infinite;
+}
+@keyframes trace-flow { to { stroke-dashoffset: -96; } }
+
+/* Chip heartbeat glow */
+.chip { animation: chip-pulse 3.5s ease-in-out infinite; }
+@keyframes chip-pulse {
+  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+  50%      { filter: drop-shadow(0 0 10px var(--accent)); }
+}
+
+/* Blinking signal indicator */
+.signal { animation: blink 1.6s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: .35; } }
+
+/* Scroll progress bar (needs the JS snippet in script.js) */
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  height: 2px;
+  width: var(--progress, 0%);
+  background: var(--orange);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; }
