@@ -92,4 +92,14 @@
 
   window.addEventListener('scroll', updateActiveSection, { passive: true });
   updateActiveSection();
+
+  // Scroll progress bar under the header
+  const header = document.querySelector('.site-header');
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    header?.style.setProperty('--progress', `${max > 0 ? (window.scrollY / max) * 100 : 0}%`);
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
 })();
